@@ -3,6 +3,7 @@ const initState = {
   connect: {},
   notification: {},
   game: {},
+  currentView: "home",
 };
 
 const reducer = (state = initState, action) => {
