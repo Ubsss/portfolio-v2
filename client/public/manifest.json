@@ -1,0 +1,8 @@
+{
+  "short_name": "Portfolio",
+  "name": "Uboh's portfolio site",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
