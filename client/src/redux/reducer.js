@@ -7,7 +7,15 @@ const initState = {
 };
 
 const reducer = (state = initState, action) => {
-  return state;
+  switch (action.type) {
+    case "UPDATE_VIEW":
+      return {
+        ...state,
+        currentView: action.payload,
+      };
+    default:
+      return state;
+  }
 };
 
 export default reducer;

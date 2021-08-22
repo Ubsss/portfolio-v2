@@ -1,4 +1,5 @@
-import { useState, Fragment } from "react";
+import { Fragment } from "react";
+import { NavigationOptions } from ".";
 import "./navigation.css";
 
 export default function Navigation() {
@@ -37,10 +38,9 @@ export default function Navigation() {
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body">
+        <div className="offcanvas-body d-flex align-items-center">
           <div>
-            Some text as placeholder. In real life you can have the elements you
-            have chosen. Like, text, images, lists, etc.
+            <NavigationOptions />
           </div>
         </div>
       </div>

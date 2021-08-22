@@ -3,3 +3,11 @@
   left: 30px;
   bottom: 30px;
 }
+
+#btn-medium-width {
+  width: 160px !important;
+}
+
+#btn-large-width {
+  width: 212px !important;
+}
