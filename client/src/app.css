@@ -10,3 +10,34 @@
 .dark-mode-bg {
   background-color: #1f262a;
 }
+
+#section-title-light {
+  font-weight: bold;
+  font-size: 60px;
+  color: #1f262a;
+}
+
+#section-subtitle-light {
+  font-weight: bold;
+  font-size: 30px;
+  color: #1f262a;
+}
+
+#section-title-dark {
+  font-weight: bold;
+  font-size: 60px;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+#section-subtitle-dark {
+  font-weight: bold;
+  font-size: 30px;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+.btn {
+  border-radius: 30px;
+  border-width: 3px;
+}
