@@ -3,6 +3,7 @@ import { Navigation, NavigationOptions } from "./components/navigation";
 import { useSelector } from "react-redux";
 import "./app.css";
 import Social from "./components/social";
+import Header from "./components/header";
 
 function App() {
   const currentView = useSelector((state) => state.currentView);
@@ -12,6 +13,7 @@ function App() {
       <div className="container app">
         <div className="row h-100">
           <div className=" col-4 d-none d-lg-block align-self-center">
+            <Header />
             <NavigationOptions />
             <Social />
           </div>

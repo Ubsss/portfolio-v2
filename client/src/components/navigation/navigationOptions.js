@@ -7,7 +7,6 @@ export default function NavigationOptions(props) {
   const dispatch = useDispatch();
 
   const updateView = (view) => {
-    console.log(view);
     dispatch({
       type: "UPDATE_VIEW",
       payload: view,

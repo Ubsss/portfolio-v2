@@ -1,5 +1,5 @@
 const initState = {
-  darkMode: false,
+  darkMode: true,
   connect: {},
   notification: {},
   game: {},
@@ -12,6 +12,11 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         currentView: action.payload,
+      };
+    case "UPDATE_MODE":
+      return {
+        ...state,
+        darkMode: action.payload,
       };
     default:
       return state;

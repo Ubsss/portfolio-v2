@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { NavigationOptions } from ".";
 import "./navigation.css";
 import Social from "../social";
+import Header from "../header";
 
 export default function Navigation() {
   return (
@@ -30,18 +31,18 @@ export default function Navigation() {
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-            Offcanvas
+            <Header />
           </h5>
           <button
             type="button"
-            className="btn-close text-rese "
+            className="btn-close"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
         <div className="offcanvas-body d-flex align-items-center">
           <div>
-            <NavigationOptions />
+            <NavigationOptions className="mt-5" />
             <Social />
           </div>
         </div>
