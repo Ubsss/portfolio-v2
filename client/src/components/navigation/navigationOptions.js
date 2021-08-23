@@ -35,15 +35,18 @@ export default function NavigationOptions(props) {
           );
         } else if (idx === 2) {
           return (
-            <button
-              key={idx}
-              id="btn-large-width"
-              type="button"
-              className="btn btn-outline-secondary btn-lg my-4"
-              onClick={() => updateView(option.view)}
-            >
-              {option.name}
-            </button>
+            <>
+              <button
+                key={idx}
+                id="btn-large-width"
+                type="button"
+                className="btn btn-outline-secondary btn-lg my-4"
+                onClick={() => updateView(option.view)}
+              >
+                {option.name}
+              </button>
+              <br />
+            </>
           );
         } else {
           return (

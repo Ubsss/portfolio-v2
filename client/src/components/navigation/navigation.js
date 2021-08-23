@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { NavigationOptions } from ".";
 import "./navigation.css";
+import Social from "../social";
 
 export default function Navigation() {
   return (
@@ -33,7 +34,7 @@ export default function Navigation() {
           </h5>
           <button
             type="button"
-            className="btn-close text-reset"
+            className="btn-close text-rese "
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
@@ -41,6 +42,7 @@ export default function Navigation() {
         <div className="offcanvas-body d-flex align-items-center">
           <div>
             <NavigationOptions />
+            <Social />
           </div>
         </div>
       </div>
