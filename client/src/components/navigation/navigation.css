@@ -1,7 +1,7 @@
 #navBarIcon {
   position: absolute;
-  left: 30px;
-  bottom: 30px;
+  left: 10px;
+  bottom: 25px;
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -24,10 +24,6 @@
 
 #btn-large-width {
   width: 212px !important;
-}
-
-#mobile-navigation-options {
-  margin-top: 50px;
 }
 
 .button-style-light {
@@ -54,6 +50,6 @@
   border: 2px solid #1aa179;
 }
 
-.btn-close {
-  fill: #1aa179 !important;
+.btn-close-dark {
+  font-size: 40px;
 }

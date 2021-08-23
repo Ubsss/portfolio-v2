@@ -40,13 +40,13 @@ export default function Navigation() {
           </h5>
           <button
             type="button"
-            className="btn-close"
+            className="btn-close btn-close-dark"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
         </div>
-        <div className="offcanvas-body d-flex align-items-center">
-          <div id="mobile-navigation-options">
+        <div className="offcanvas-body align-items-center">
+          <div>
             <NavigationOptions />
             <Social />
           </div>
