@@ -18,9 +18,18 @@ function Header() {
       : "#f5f5f5";
   };
 
+  const updateView = (view) => {
+    dispatch({
+      type: "UPDATE_VIEW",
+      payload: view,
+    });
+  };
+
   return (
     <div className="mb-2 position-relative">
-      <span id="header-name">Uboh</span>
+      <span id="header-name" onClick={() => updateView("home")}>
+        Uboh
+      </span>
       <input
         className="dark-mode-toggle position-absolute top-50 start-50"
         type="checkbox"
@@ -49,9 +58,19 @@ export default function HeaderMobile() {
       : "#f5f5f5";
   };
 
+  const updateView = (view) => {
+    dispatch({
+      type: "UPDATE_VIEW",
+      payload: view,
+    });
+  };
+
   return (
     <div className="mb-2">
-      <div id="header-name">Uboh</div>
+      <div id="header-name">
+        {" "}
+        <span onClick={() => updateView("home")}>Uboh</span>
+      </div>
       <div>
         <input
           className="dark-mode-toggle-mobile"

@@ -2,6 +2,7 @@
   font-weight: bold;
   font-size: 60px;
   color: #1aa179;
+  cursor: pointer;
 }
 
 input[type="checkbox"].dark-mode-toggle {
