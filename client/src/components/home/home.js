@@ -23,7 +23,7 @@ export default function Home() {
         id="home-image"
         className="rounded-circle my-5 img-fluid"
         src={ProfileImage}
-        alt="home-photo"
+        alt="home"
       />
     </div>
   );

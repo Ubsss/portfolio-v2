@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import "./social.css";
 import { socialData } from "./socialData";
 
