@@ -40,4 +40,16 @@
 .btn {
   border-radius: 30px;
   border-width: 3px;
+  border-color: #1aa179;
+}
+
+.btn:hover {
+  border-radius: 30px;
+  border-width: 3px;
+  border-color: #1aa179;
+}
+
+#view-wrapper {
+  max-height: 100vh;
+  overflow-y: scroll;
 }

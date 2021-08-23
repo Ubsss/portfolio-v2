@@ -22,7 +22,7 @@ function App() {
             <NavigationOptions />
             <Social />
           </div>
-          <div className="col-12 col-lg-8">
+          <div id="view-wrapper" className="col-12 col-lg-8">
             {currentView === "home" && <Home />}
             {currentView === "about" && "About"}
             {currentView === "community" && "Community"}
