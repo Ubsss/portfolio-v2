@@ -24,6 +24,7 @@ function Header() {
       <input
         className="dark-mode-toggle position-absolute top-50 start-50"
         type="checkbox"
+        checked={darkMode}
         value={darkMode}
         onChange={handleModeUpdate}
       />
@@ -55,6 +56,7 @@ export default function HeaderMobile() {
         <input
           className="dark-mode-toggle-mobile"
           type="checkbox"
+          checked={darkMode}
           value={darkMode}
           onChange={handleModeUpdate}
         />

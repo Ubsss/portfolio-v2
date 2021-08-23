@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { Fragment } from "react";
 import { Navigation, NavigationOptions } from "./components/navigation";
 import { useSelector } from "react-redux";
 import "./app.css";

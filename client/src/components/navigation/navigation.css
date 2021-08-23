@@ -53,3 +53,7 @@
   background-color: #1aa179;
   border: 2px solid #1aa179;
 }
+
+.btn-close {
+  fill: #1aa179 !important;
+}
