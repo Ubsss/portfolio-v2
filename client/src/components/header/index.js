@@ -1,2 +1,2 @@
-import Header from "./header";
-export default Header;
+import { Header, HeaderMobile } from "./header";
+export { Header, HeaderMobile };

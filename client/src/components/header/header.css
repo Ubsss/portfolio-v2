@@ -59,3 +59,61 @@ input[type="checkbox"].dark-mode-toggle:checked:after {
   -webkit-transform: scale(0);
   transform: scale(0);
 }
+
+/* Mobile toggle styles */
+
+input[type="checkbox"].dark-mode-toggle-mobile {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 90px;
+  height: 8px;
+  background: #444;
+  border-radius: 5px;
+  position: relative;
+  outline: 0;
+  cursor: pointer;
+}
+
+input[type="checkbox"].dark-mode-toggle-mobile:before,
+input[type="checkbox"].dark-mode-toggle-mobile:after {
+  position: absolute;
+  content: "";
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+input[type="checkbox"].dark-mode-toggle-mobile:before {
+  width: 40px;
+  height: 40px;
+  background: #ccc;
+  border: 5px solid #666;
+  border-radius: 50%;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+input[type="checkbox"].dark-mode-toggle-mobile:after {
+  width: 30px;
+  height: 30px;
+  background: #666;
+  border-radius: 50%;
+  top: 50%;
+  left: 10px;
+  -webkit-transform: scale(1) translateY(-50%);
+  transform: scale(1) translateY(-50%);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+input[type="checkbox"].dark-mode-toggle-mobile:checked:before {
+  left: calc(100% - 35px);
+}
+
+input[type="checkbox"].dark-mode-toggle-mobile:checked:after {
+  left: 75px;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}

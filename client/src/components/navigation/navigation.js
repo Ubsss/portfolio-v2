@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { NavigationOptions } from ".";
 import "./navigation.css";
 import Social from "../social";
-import Header from "../header";
+import { HeaderMobile } from "../header";
 
 export default function Navigation() {
   return (
@@ -31,7 +31,7 @@ export default function Navigation() {
       >
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-            <Header />
+            <HeaderMobile />
           </h5>
           <button
             type="button"
@@ -41,8 +41,8 @@ export default function Navigation() {
           ></button>
         </div>
         <div className="offcanvas-body d-flex align-items-center">
-          <div>
-            <NavigationOptions className="mt-5" />
+          <div id="mobile-navigation-options">
+            <NavigationOptions />
             <Social />
           </div>
         </div>

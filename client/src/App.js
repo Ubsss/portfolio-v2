@@ -3,7 +3,7 @@ import { Navigation, NavigationOptions } from "./components/navigation";
 import { useSelector } from "react-redux";
 import "./app.css";
 import Social from "./components/social";
-import Header from "./components/header";
+import { Header } from "./components/header";
 
 function App() {
   const currentView = useSelector((state) => state.currentView);
@@ -17,7 +17,7 @@ function App() {
             <NavigationOptions />
             <Social />
           </div>
-          <div className="col-12 col-lg-8">
+          <div className="col-12 col-lg-8 mt-5">
             {currentView === "home" && "Home"}
             {currentView === "about" && "About"}
             {currentView === "community" && "Community"}
