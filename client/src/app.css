@@ -1,4 +1,12 @@
-.app {
+#app {
   height: 100vh !important;
   width: 100% !important;
+}
+
+.light-mode-bg {
+  background-color: #f5f5f5;
+}
+
+.dark-mode-bg {
+  background-color: #1f262a;
 }

@@ -11,6 +11,11 @@ function Header() {
       type: "UPDATE_MODE",
       payload: !darkMode,
     });
+
+    let rootBackgroundColor = document.getElementById("root");
+    rootBackgroundColor.style.backgroundColor = darkMode
+      ? "#1f262a"
+      : "#f5f5f5";
   };
 
   return (
@@ -36,6 +41,11 @@ export default function HeaderMobile() {
       type: "UPDATE_MODE",
       payload: !darkMode,
     });
+
+    let rootBackgroundColor = document.getElementById("root");
+    rootBackgroundColor.style.backgroundColor = darkMode
+      ? "#1f262a"
+      : "#f5f5f5";
   };
 
   return (

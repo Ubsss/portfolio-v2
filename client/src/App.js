@@ -7,10 +7,14 @@ import { Header } from "./components/header";
 
 function App() {
   const currentView = useSelector((state) => state.currentView);
+  const darkMode = useSelector((state) => state.darkMode);
 
   return (
     <Fragment>
-      <div className="container app">
+      <div
+        id="app"
+        className={`container ${darkMode ? "light-mode-bg" : "dark-mode-bg"}`}
+      >
         <div className="row h-100">
           <div className=" col-4 d-none d-lg-block align-self-center">
             <Header />

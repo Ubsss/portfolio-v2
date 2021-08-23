@@ -1,6 +1,7 @@
 #header-name {
   font-weight: bold;
   font-size: 60px;
+  color: #1aa179;
 }
 
 input[type="checkbox"].dark-mode-toggle {
@@ -15,6 +16,11 @@ input[type="checkbox"].dark-mode-toggle {
   outline: 0;
   cursor: pointer;
   margin-left: 16px;
+}
+
+input[type="checkbox"].dark-mode-toggle:hover {
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 input[type="checkbox"].dark-mode-toggle:before,
@@ -73,6 +79,11 @@ input[type="checkbox"].dark-mode-toggle-mobile {
   position: relative;
   outline: 0;
   cursor: pointer;
+}
+
+input[type="checkbox"].dark-mode-toggle-mobile:hover {
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 input[type="checkbox"].dark-mode-toggle-mobile:before,
