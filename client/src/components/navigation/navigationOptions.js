@@ -7,6 +7,7 @@ export default function NavigationOptions(props) {
   const dispatch = useDispatch();
 
   const darkMode = useSelector((state) => state.darkMode);
+  const currentView = useSelector((state) => state.currentView);
 
   const updateView = (view) => {
     dispatch({
@@ -26,7 +27,7 @@ export default function NavigationOptions(props) {
                 type="button"
                 className={`btn btn-outline-secondary btn-lg my-4 ${
                   darkMode ? "button-style-light" : "button-style-dark"
-                }`}
+                } ${currentView === option.view && "current-view-btn"}`}
                 onClick={() => updateView(option.view)}
               >
                 {option.name}
@@ -42,7 +43,7 @@ export default function NavigationOptions(props) {
                 type="button"
                 className={`btn btn-outline-secondary btn-lg my-4 ${
                   darkMode ? "button-style-light" : "button-style-dark"
-                }`}
+                } ${currentView === option.view && "current-view-btn"}`}
                 onClick={() => updateView(option.view)}
               >
                 {option.name}
@@ -58,7 +59,7 @@ export default function NavigationOptions(props) {
                 type="button"
                 className={`btn btn-outline-secondary btn-lg my-4 ${
                   darkMode ? "button-style-light" : "button-style-dark"
-                }`}
+                } ${currentView === option.view && "current-view-btn"}`}
                 onClick={() => updateView(option.view)}
               >
                 {option.name}

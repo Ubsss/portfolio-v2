@@ -53,3 +53,14 @@
 .btn-close-dark {
   font-size: 40px;
 }
+
+.current-view-btn {
+  font-weight: bold;
+  text-decoration-thickness: 3px !important;
+  text-decoration: underline rgb(26, 161, 121);
+}
+
+.current-view-btn:hover {
+  font-weight: bold;
+  text-decoration: underline #f5f5f5;
+}
