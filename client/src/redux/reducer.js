@@ -24,13 +24,11 @@ const reducer = (state = initState, action) => {
         ...state,
         darkMode: action.payload,
       };
-
     case "UPDATE_NOTIFICATION":
       return {
         ...state,
         notification: action.payload,
       };
-
     case "UPDATE_CONNECT":
       return {
         ...state,
