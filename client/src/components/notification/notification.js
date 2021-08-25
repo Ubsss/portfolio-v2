@@ -12,12 +12,7 @@ export default function Notification(props) {
       title: "",
       messages: [],
       buttonText: "",
-      closeAction: null,
     };
-
-    if (notification.closeAction) {
-      notification.closeAction();
-    }
 
     dispatch({
       type: "UPDATE_NOTIFICATION",
@@ -43,14 +38,24 @@ export default function Notification(props) {
           >
             {notification.title}
           </h5>
-          <ul
-            id={`${darkMode ? "section-text-light" : "section-text-dark"}`}
-            className="card-text"
-          >
-            {notification.messages.map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
+          {notification.messages.length > 1 ? (
+            <ul
+              id={`${darkMode ? "section-text-light" : "section-text-dark"}`}
+              className="card-text"
+            >
+              {notification.messages.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p
+              id={`${darkMode ? "section-text-light" : "section-text-dark"}`}
+              className="card-text"
+            >
+              {notification.messages[0]}
+            </p>
+          )}
+
           <button
             type="button"
             className={`btn btn-outline-secondary btn-lg mx-1 ${
