@@ -2,13 +2,11 @@ const initState = {
   darkMode: true,
   connect: { email: "", phone: "", type: "", message: "" },
   notification: {
-    show: true,
-    title: "Test title",
-    messages: ["please provide something", "issue 2"],
-    buttonText: "Got it!",
-    closeAction: function () {
-      console.log("notifications callback");
-    },
+    show: false,
+    title: "",
+    messages: [],
+    buttonText: "",
+    closeAction: null,
   },
   game: {},
   currentView: "home",
