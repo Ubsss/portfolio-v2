@@ -6,7 +6,6 @@ const initState = {
     title: "",
     messages: [],
     buttonText: "",
-    closeAction: null,
   },
   game: {},
   currentView: "home",

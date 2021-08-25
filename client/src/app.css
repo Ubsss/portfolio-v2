@@ -66,3 +66,7 @@
 ul > li {
   list-style-type: circle;
 }
+
+textarea {
+  resize: none;
+}
