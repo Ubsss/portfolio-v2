@@ -5,10 +5,13 @@ import "./app.css";
 import Social from "./components/social";
 import { Header } from "./components/header";
 import Home from "./components/home";
+import Notification from "./components/notification";
 
 function App() {
   const currentView = useSelector((state) => state.currentView);
   const darkMode = useSelector((state) => state.darkMode);
+
+  // add cookies notification popup
 
   return (
     <Fragment>
@@ -22,13 +25,14 @@ function App() {
             <NavigationOptions />
             <Social />
           </div>
-          <div id="view-wrapper" className="col-12 col-lg-8 align-self-center">
+          <div id="view-wrapper" className="col-12 col-lg-8 align-self-center ">
             {currentView === "home" && <Home />}
             {currentView === "about" && "About"}
             {currentView === "community" && "Community"}
             {currentView === "connect" && "Connect"}
             {currentView === "dogos" && "Dogos"}
             {currentView === "game" && "Game"}
+            <Notification />
           </div>
         </div>
       </div>

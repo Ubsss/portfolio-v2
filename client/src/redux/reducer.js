@@ -1,7 +1,13 @@
 const initState = {
   darkMode: true,
-  connect: {},
-  notification: {},
+  connect: { email: "", phone: "", type: "", message: "" },
+  notification: {
+    show: false,
+    title: "",
+    messages: [],
+    buttonText: "",
+    closeAction: null,
+  },
   game: {},
   currentView: "home",
 };
@@ -17,6 +23,16 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         darkMode: action.payload,
+      };
+    case "UPDATE_NOTIFICATION":
+      return {
+        ...state,
+        notification: action.payload,
+      };
+    case "UPDATE_CONNECT":
+      return {
+        ...state,
+        connect: action.payload,
       };
     default:
       return state;

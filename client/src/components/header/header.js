@@ -41,7 +41,7 @@ function Header() {
   );
 }
 
-export default function HeaderMobile() {
+function HeaderMobile() {
   const darkMode = useSelector((state) => state.darkMode);
 
   const dispatch = useDispatch();

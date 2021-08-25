@@ -1,0 +1,15 @@
+#notification {
+  position: relative !important;
+  max-height: 100%;
+  overflow-y: scroll;
+  border: solid 3px #1aa179;
+  border-radius: 15px;
+  width: 18rem;
+  /* overflow-y: scroll; */
+}
+
+#notifications-wrapper {
+  position: fixed;
+  right: 15px;
+  bottom: 55px;
+}
