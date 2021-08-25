@@ -7,6 +7,7 @@ import { Header } from "./components/header";
 import Home from "./components/home";
 import Notification from "./components/notification";
 import Connect from "./components/connect";
+import Community from "./components/community";
 
 function App() {
   const currentView = useSelector((state) => state.currentView);
@@ -29,7 +30,7 @@ function App() {
           <div id="view-wrapper" className="col-12 col-lg-8 align-self-center ">
             {currentView === "home" && <Home />}
             {currentView === "about" && "About"}
-            {currentView === "community" && "Community"}
+            {currentView === "community" && <Community />}
             {currentView === "connect" && <Connect />}
             {currentView === "dogos" && "Dogos"}
             {currentView === "game" && "Game"}
