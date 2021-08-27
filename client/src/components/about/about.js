@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import "./about.css";
 
 export default function About() {
   const darkMode = useSelector((state) => state.darkMode);
@@ -15,7 +14,8 @@ export default function About() {
             darkMode ? "section-subtitle-light" : "section-subtitle-dark"
           }`}
         >
-          Here are my little trouble makers.
+          I leverage technology to create-people centric solutions to complex
+          business problems.
         </span>
       </p>
     </div>
