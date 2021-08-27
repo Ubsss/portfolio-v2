@@ -9,7 +9,7 @@ export default function Home() {
     <div className="container text-center">
       <p>
         <span id={`${darkMode ? "section-title-light" : "section-title-dark"}`}>
-          My Dogos
+          My dogos
         </span>
         <br />
         <span
@@ -36,8 +36,8 @@ export default function Home() {
             <strong>Nala</strong>
           </p>
           <p>
-            The responsible older sister that listens sometimes. She loves to
-            play, cuddle and bark at random things.
+            The responsible older sister that listens... sometimes. She loves to
+            play, cuddle and bark at random cars.
           </p>
         </div>
         <div className="col-12 col-md-6">
@@ -51,7 +51,7 @@ export default function Home() {
             <strong>Sarabi</strong>
           </p>
           <p>
-            She is the spontaneous younger sister. She loves her belly rubs and
+            The spontaneous younger sister. She loves her belly rubs, toys and
             arguing with her sister.
           </p>
         </div>
