@@ -9,6 +9,7 @@ import Notification from "./components/notification";
 import Connect from "./components/connect";
 import Community from "./components/community";
 import Dogos from "./components/dogos";
+import About from "./components/about";
 
 function App() {
   const currentView = useSelector((state) => state.currentView);
@@ -30,7 +31,7 @@ function App() {
           </div>
           <div id="view-wrapper" className="col-12 col-lg-8 align-self-center ">
             {currentView === "home" && <Home />}
-            {currentView === "about" && "About"}
+            {currentView === "about" && <About />}
             {currentView === "community" && <Community />}
             {currentView === "connect" && <Connect />}
             {currentView === "dogos" && <Dogos />}
