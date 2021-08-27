@@ -8,6 +8,10 @@
   /* overflow-y: scroll; */
 }
 
+#notification ul li {
+  list-style-type: circle;
+}
+
 #notifications-wrapper {
   position: fixed;
   right: 15px;
