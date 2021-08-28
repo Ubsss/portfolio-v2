@@ -36,7 +36,6 @@ function App() {
     }
   };
 
-  // add cookies notification popup
   useEffect(() => {
     triggerCookiesMessage();
   }, []);
