@@ -14,6 +14,10 @@ export default function Notification(props) {
       buttonText: "",
     };
 
+    if (notification.callBack) {
+      notification.callBack();
+    }
+
     dispatch({
       type: "UPDATE_NOTIFICATION",
       payload: newNotificationObject,

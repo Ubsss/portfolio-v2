@@ -1,6 +1,6 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Navigation, NavigationOptions } from "./components/navigation";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./app.css";
 import Social from "./components/social";
 import { Header } from "./components/header";
@@ -13,10 +13,33 @@ import About from "./components/about";
 import { Game, VideoGame } from "./components/game";
 
 function App() {
+  const dispatch = useDispatch();
   const currentView = useSelector((state) => state.currentView);
   const darkMode = useSelector((state) => state.darkMode);
 
+  const triggerCookiesMessage = () => {
+    if (
+      !localStorage.getItem("acceptedCookies") ||
+      localStorage.getItem("acceptedCookies") !== "true"
+    ) {
+      let cookiesNotificationObject = {
+        show: true,
+        title: "Hey beautiful person!",
+        messages: ["This site uses cookies to enhance your experience."],
+        buttonText: "Got it!",
+        callBack: () => localStorage.setItem("acceptedCookies", "true"),
+      };
+      dispatch({
+        type: "UPDATE_NOTIFICATION",
+        payload: cookiesNotificationObject,
+      });
+    }
+  };
+
   // add cookies notification popup
+  useEffect(() => {
+    triggerCookiesMessage();
+  }, []);
 
   return (
     <Fragment>
