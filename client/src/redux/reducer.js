@@ -7,7 +7,10 @@ const initState = {
     messages: [],
     buttonText: "",
   },
-  game: {},
+  game: {
+    playing: false,
+    leaderBoard: [], // { player: "Uboh", score: 83 }
+  },
   currentView: "home",
 };
 
@@ -32,6 +35,12 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         connect: action.payload,
+      };
+
+    case "UPDATE_GAME":
+      return {
+        ...state,
+        game: action.payload,
       };
     default:
       return state;

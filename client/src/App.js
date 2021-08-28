@@ -10,6 +10,7 @@ import Connect from "./components/connect";
 import Community from "./components/community";
 import Dogos from "./components/dogos";
 import About from "./components/about";
+import { Game, VideoGame } from "./components/game";
 
 function App() {
   const currentView = useSelector((state) => state.currentView);
@@ -35,12 +36,13 @@ function App() {
             {currentView === "community" && <Community />}
             {currentView === "connect" && <Connect />}
             {currentView === "dogos" && <Dogos />}
-            {currentView === "game" && "Game"}
+            {currentView === "game" && <Game />}
             <Notification />
           </div>
         </div>
       </div>
       <Navigation />
+      <VideoGame />
     </Fragment>
   );
 }
