@@ -32,6 +32,8 @@ export default function Game() {
       <button
         id="btn-medium-width"
         type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
         className={`btn btn-outline-secondary btn-lg my-4 ${
           darkMode ? "button-style-light" : "button-style-dark"
         }`}

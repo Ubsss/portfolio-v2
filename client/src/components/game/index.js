@@ -1,2 +1,3 @@
 import Game from "./game";
-export default Game;
+import VideoGame from "./videoGame";
+export { Game, VideoGame };
