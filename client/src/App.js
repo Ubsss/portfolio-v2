@@ -36,8 +36,13 @@ function App() {
     }
   };
 
+  const loginFirebaseUser = () => {
+    console.log("logging in fb user");
+  };
+
   useEffect(() => {
     triggerCookiesMessage();
+    loginFirebaseUser();
   }, []);
 
   return (
