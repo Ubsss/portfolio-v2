@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./app";
+import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import reducer from "./redux/reducer";
 import { createStore } from "redux";
