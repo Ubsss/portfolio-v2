@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { isEmail, isMobilePhone, isEmpty } from "validator";
+import Fire from "../../utils/firebase";
 import "./connect.css";
 
 export default function Connect() {
@@ -26,8 +27,25 @@ export default function Connect() {
   const clearConnectData = () => {
     dispatch({
       type: "UPDATE_CONNECT",
-      payload: { email: "", phone: "", type: "", message: "" },
+      payload: { email: "", phone: "", type: "comment", message: "" },
     });
+  };
+
+  const sendConnectData = async () => {
+    try {
+      let token = await Fire.getCurrentUserToken();
+      let sendData = await fetch(process.env.REACT_APP_BACKEND_ENDPOINT || "", {
+        method: "POST",
+        headers: {
+          Authentication: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ action: "addMessage", message: connect }),
+      });
+      return await sendData.json();
+    } catch (error) {
+      return null;
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -45,9 +63,15 @@ export default function Connect() {
       updateNotification("Heads up", true, messages, "Close");
     } else {
       // Send data to backend
-      messages.push("Thank you for the message!");
-      updateNotification("Awesome!", true, messages, "Close");
-      clearConnectData();
+      let sentData = await sendConnectData();
+      if (!sentData || sentData.code != 200) {
+        messages.push("Unable to deliver your message, please try again.");
+        updateNotification("Oops!", true, messages, "Close");
+      } else {
+        messages.push("Thank you for the message!");
+        updateNotification("Awesome!", true, messages, "Close");
+        clearConnectData();
+      }
     }
     setLoading(false);
   };

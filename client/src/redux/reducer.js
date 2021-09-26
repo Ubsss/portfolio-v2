@@ -1,6 +1,6 @@
 const initState = {
   darkMode: true,
-  connect: { email: "", phone: "", type: "", message: "" },
+  connect: { email: "", phone: "", type: "comment", message: "" },
   notification: {
     show: false,
     title: "",
