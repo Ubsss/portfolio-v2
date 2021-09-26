@@ -11,6 +11,7 @@ import Community from "./components/community";
 import Dogos from "./components/dogos";
 import About from "./components/about";
 import { Game, VideoGame } from "./components/game";
+import Fire from "./utils/firebase";
 
 function App() {
   const dispatch = useDispatch();
@@ -36,14 +37,14 @@ function App() {
     }
   };
 
-  const loginFirebaseUser = () => {
-    console.log("logging in fb user");
+  const loginAnonUser = async () => {
+    await Fire.signInAnonUser();
   };
 
   useEffect(() => {
     triggerCookiesMessage();
-    loginFirebaseUser();
-  }, []);
+    loginAnonUser();
+  });
 
   return (
     <Fragment>
