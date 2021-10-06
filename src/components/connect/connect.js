@@ -34,14 +34,41 @@ export default function Connect() {
   const sendConnectData = async () => {
     try {
       let token = await Fire.getCurrentUserToken();
-      let sendData = await fetch(process.env.REACT_APP_BACKEND_ENDPOINT || "", {
-        method: "POST",
-        headers: {
-          Authentication: "Bearer " + token,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ action: "addMessage", message: connect }),
-      });
+      let sendData = await fetch(
+        process.env.REACT_APP_BACKEND_ENDPOINT + "uboh" || "",
+        {
+          method: "POST",
+          headers: {
+            Authentication: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ action: "addMessage", message: connect }),
+        }
+      );
+      return await sendData.json();
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const sendConnectSMS = async () => {
+    try {
+      let token = await Fire.getCurrentUserToken();
+      let sendData = await fetch(
+        process.env.REACT_APP_BACKEND_ENDPOINT + "sms" || "",
+        {
+          method: "POST",
+          headers: {
+            Authentication: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            action: "sendSMS",
+            project: "uboh",
+            message: JSON.stringify(connect),
+          }),
+        }
+      );
       return await sendData.json();
     } catch (error) {
       return null;
@@ -68,6 +95,7 @@ export default function Connect() {
         messages.push("Unable to deliver your message, please try again.");
         updateNotification("Oops!", true, messages, "Close");
       } else {
+        await sendConnectSMS();
         messages.push("Thank you for the message!");
         updateNotification("Awesome!", true, messages, "Close");
         clearConnectData();
