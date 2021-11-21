@@ -7,10 +7,6 @@ const initState = {
     messages: [],
     buttonText: "",
   },
-  game: {
-    playing: false,
-    leaderBoard: [], // { player: "Uboh", score: 83 }
-  },
   currentView: "home",
 };
 

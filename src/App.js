@@ -10,7 +10,6 @@ import Connect from "./components/connect";
 import Community from "./components/community";
 import Dogos from "./components/dogos";
 import About from "./components/about";
-import { Game, VideoGame } from "./components/game";
 import Fire from "./utils/firebase";
 
 function App() {
@@ -64,13 +63,11 @@ function App() {
             {currentView === "community" && <Community />}
             {currentView === "connect" && <Connect />}
             {currentView === "dogos" && <Dogos />}
-            {currentView === "game" && <Game />}
             <Notification />
           </div>
         </div>
       </div>
       <Navigation />
-      <VideoGame />
     </Fragment>
   );
 }
