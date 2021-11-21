@@ -26,35 +26,116 @@ export default function Home() {
         className="row h-100 w-100"
       >
         <div className="col-12 col-md-6">
-          {" "}
-          <img
-            id="dogos-image"
-            className="rounded-circle my-2 img-fluid"
-            src={Nala}
-            alt="nala"
-          />
+          <div
+            id="nalaCarousel"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-indicators">
+              {dogosData.nala.pictures.map((_, idx) => (
+                <button
+                  type="button"
+                  data-bs-target="#nalaCarousel"
+                  data-bs-slide-to={`${idx}`}
+                  className={`${idx === 0 ? "active" : ""}`}
+                  aria-current={`${idx === 0 ? "true" : ""}`}
+                  aria-label={`Slide ${idx++}`}
+                />
+              ))}
+            </div>
+            <div className="carousel-inner px-2">
+              {dogosData.nala.pictures.map((img, idx) => {
+                return (
+                  <div className={`carousel-item ${idx == 0 ? "active" : ""}`}>
+                    <img
+                      id="dogos-image"
+                      src={img}
+                      className=" rounded-circle m-2 img-fluid"
+                      alt={`nala-${idx}`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#nalaCarousel"
+              data-bs-slide="prev"
+            >
+              <span className="carousel-control-prev-icon" aria-hidden="true" />
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#nalaCarousel"
+              data-bs-slide="next"
+            >
+              <span className="carousel-control-next-icon" aria-hidden="true" />
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div>
           <p>
-            <strong>Nala</strong>
+            <strong>{dogosData.nala.name}</strong>
           </p>
-          <p>
-            The responsible older sister that listens... sometimes. She loves to
-            play, cuddle and bark at random cars.
-          </p>
+          <p>{dogosData.nala.description}</p>
         </div>
         <div className="col-12 col-md-6">
-          <img
-            id="dogos-image"
-            className="rounded-circle my-2 img-fluid"
-            src={Sarabi}
-            alt="sarabi"
-          />
+          <div
+            id="sarabiCarousel"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-indicators">
+              {dogosData.sarabi.pictures.map((_, idx) => (
+                <button
+                  type="button"
+                  data-bs-target="#sarabiCarousel"
+                  data-bs-slide-to={`${idx}`}
+                  className={`${idx === 0 ? "active" : ""}`}
+                  aria-current={`${idx === 0 ? "true" : ""}`}
+                  aria-label={`Slide ${idx++}`}
+                />
+              ))}
+            </div>
+            <div className="carousel-inner px-2">
+              {dogosData.sarabi.pictures.map((img, idx) => {
+                return (
+                  <div className={`carousel-item ${idx == 0 ? "active" : ""}`}>
+                    <img
+                      id="dogos-image"
+                      src={img}
+                      className=" rounded-circle m-2 img-fluid"
+                      alt={`sarabi-${idx}`}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#sarabiCarousel"
+              data-bs-slide="prev"
+            >
+              <span className="carousel-control-prev-icon" aria-hidden="true" />
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#sarabiCarousel"
+              data-bs-slide="next"
+            >
+              <span className="carousel-control-next-icon" aria-hidden="true" />
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div>
           <p>
-            <strong>Sarabi</strong>
+            <strong>{dogosData.sarabi.name}</strong>
           </p>
-          <p>
-            The spontaneous younger sister. She loves her belly rubs, toys and
-            arguing with her sister.
-          </p>
+          <p>{dogosData.sarabi.description}</p>
         </div>
       </div>
     </div>

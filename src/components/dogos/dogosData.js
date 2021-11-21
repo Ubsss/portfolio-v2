@@ -12,7 +12,7 @@ export default {
       "The responsible older sister that listens... sometimes. She loves to play, cuddle and bark at random cars.",
     pictures: [nala, nala1, nala2],
   },
-  srabi: {
+  sarabi: {
     name: "Sarabi",
     description:
       "The spontaneous younger sister. She loves her belly rubs, toys and arguing with her sister.",
