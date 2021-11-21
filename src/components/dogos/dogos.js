@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Nala from "./nala.jpeg";
 import Sarabi from "./sarabi.jpeg";
 import "./dogos.css";
+import dogosData from "./dogosData";
 
 export default function Home() {
   const darkMode = useSelector((state) => state.darkMode);
