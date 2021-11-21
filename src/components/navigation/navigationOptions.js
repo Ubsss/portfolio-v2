@@ -19,7 +19,7 @@ export default function NavigationOptions(props) {
   return (
     <Fragment>
       {navigationOptionsData.map((option, idx) => {
-        if (idx === 1 || idx === 3) {
+        if (idx === 0 || idx === 3) {
           return (
             <div key={idx}>
               <button
@@ -35,26 +35,11 @@ export default function NavigationOptions(props) {
               <br />{" "}
             </div>
           );
-        } else if (idx === 2) {
-          return (
-            <div key={idx}>
-              <button
-                id="btn-large-width"
-                type="button"
-                className={`btn btn-outline-secondary btn-lg my-4 ${
-                  darkMode ? "button-style-light" : "button-style-dark"
-                } ${currentView === option.view && "current-view-btn"}`}
-                onClick={() => updateView(option.view)}
-              >
-                {option.name}
-              </button>
-              <br />
-            </div>
-          );
         } else {
           return (
             <div key={idx}>
               <button
+                id="btn-large-width"
                 key={idx}
                 type="button"
                 className={`btn btn-outline-secondary btn-lg my-4 ${
