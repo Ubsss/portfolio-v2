@@ -11,7 +11,7 @@ import Community from "./components/community";
 import Dogos from "./components/dogos";
 import About from "./components/about";
 import Fire from "./utils/firebase";
-import AdviceData from "./components/home/content.js";
+import AdviceData from "./components/home/content";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +20,7 @@ function App() {
   const advice = useSelector((state) => state.advice);
 
   const loadAdvice = () => {
+    // implement logic to get advice list
     dispatch({
       type: "UPDATE_ADVICE",
       payload: AdviceData,
