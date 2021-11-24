@@ -11,11 +11,20 @@ import Community from "./components/community";
 import Dogos from "./components/dogos";
 import About from "./components/about";
 import Fire from "./utils/firebase";
+import AdviceData from "./components/home/content.js";
 
 function App() {
   const dispatch = useDispatch();
   const currentView = useSelector((state) => state.currentView);
   const darkMode = useSelector((state) => state.darkMode);
+  const advice = useSelector((state) => state.advice);
+
+  const loadAdvice = () => {
+    dispatch({
+      type: "UPDATE_ADVICE",
+      payload: AdviceData,
+    });
+  };
 
   const triggerCookiesMessage = () => {
     if (
@@ -43,7 +52,8 @@ function App() {
   useEffect(() => {
     triggerCookiesMessage();
     loginAnonUser();
-  });
+    loadAdvice();
+  }, []);
 
   return (
     <Fragment>
