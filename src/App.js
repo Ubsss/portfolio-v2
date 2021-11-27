@@ -17,7 +17,6 @@ function App() {
   const dispatch = useDispatch();
   const currentView = useSelector((state) => state.currentView);
   const darkMode = useSelector((state) => state.darkMode);
-  const advice = useSelector((state) => state.advice);
 
   const loadAdvice = () => {
     // implement logic to get advice list
@@ -47,12 +46,17 @@ function App() {
   };
 
   const loginAnonUser = async () => {
-    await Fire.signInAnonUser();
+    try {
+      await Fire.signInAnonUser();
+    } catch (err) {
+      // send err to logs
+      console.log("Unable to login");
+    }
   };
 
   useEffect(() => {
     triggerCookiesMessage();
-    loginAnonUser();
+    // loginAnonUser();
     loadAdvice();
   }, []);
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ProfileImage from "./profilePhoto-mini.jpg";
 import developersIcon from "./developers.png";
@@ -11,27 +11,24 @@ export default function Home() {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.darkMode);
   const advice = useSelector((state) => state.advice);
-  const [idx, setIDX] = useState(0);
-  const [icon, setIcon] = useState(adviceIcon);
+  const [idx, setIDX] = useState(null);
+  const [icon, setIcon] = useState(null);
 
-  const assignIDX = () => {
-    if (advice?.length !== 0) {
-      setIDX(Math.random() * (advice?.length || 0 - 0) + 0);
-      console.log(idx);
-    }
-  };
-
-  const assignIcon = () => {
+  const formateAdvice = () => {
     if (advice) {
-      if (advice[idx]?.category === "career") setIcon(careerIcon);
-      if (advice[idx]?.category === "developers") setIcon(developersIcon);
-      if (advice[idx]?.category === "entrepreneurs") setIcon(entrepreneursIcon);
+      let currentIDX = Math.ceil(Math.random() * (advice.length - 0) + 0);
+      setIDX(currentIDX);
+      if (advice[currentIDX].category === "career") setIcon(careerIcon);
+      else if (advice[currentIDX].category === "developers")
+        setIcon(developersIcon);
+      else if (advice[currentIDX].category === "entrepreneurs")
+        setIcon(entrepreneursIcon);
+      else setIcon(adviceIcon);
     }
   };
 
   useEffect(() => {
-    assignIDX();
-    assignIcon();
+    formateAdvice();
   }, [advice]);
 
   return (
@@ -66,23 +63,26 @@ export default function Home() {
           }`}
           role="alert"
         >
-          <div>
-            <img
-              id="advice-icon"
-              src={icon ? icon : adviceIcon}
-              className="rounded me-2"
-              alt={`advice-icon`}
-            />
-            <strong className="pr-2">
-              {" "}
-              {`${(advice && advice[idx]?.category) || "everyone"}`}
-            </strong>
-          </div>
-
-          <div>
-            {`${(advice && advice[idx]?.advice) || "Patience is a virtue."}`} -
-            <i> {`${(advice && advice[idx]?.author) || "Me"}`} </i>
-          </div>
+          {advice && idx !== null && icon ? (
+            <div>
+              <div>
+                <img
+                  id="advice-icon"
+                  src={icon}
+                  className="rounded me-2"
+                  alt={`advice-icon`}
+                />
+                <strong className="pr-2">{`${advice[idx]?.category}`}</strong>
+              </div>
+              {console.log(advice[idx])}
+              <blockquote className="blockquote mb-0">
+                <p>{`${advice[idx]?.advice}`}</p>
+                <footer className="blockquote-footer">{`${advice[idx]?.author}`}</footer>
+              </blockquote>
+            </div>
+          ) : (
+            "Loading advice ..."
+          )}
         </div>
       </div>
     </div>

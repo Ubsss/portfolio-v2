@@ -22,7 +22,9 @@ class FirebaseObj {
   async signInAnonUser() {
     try {
       await signInAnonymously(this.fbAuth);
-    } catch (error) {}
+    } catch (error) {
+      // log error to server
+    }
   }
 
   /**
@@ -35,6 +37,7 @@ class FirebaseObj {
       if (currentUser) return await getIdToken(currentUser);
       else return null;
     } catch (error) {
+      // log error to server
       return null;
     }
   }
