@@ -60,7 +60,7 @@
 
 #view-wrapper {
   max-height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 textarea {
