@@ -11,23 +11,19 @@ export default function Home() {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.darkMode);
   const advice = useSelector((state) => state.advice);
+  const adviceIDX = useSelector((state) => state.adviceIDX);
   const adviceUpdate = useSelector((state) => state.adviceUpdate);
-  const [idx, setIDX] = useState(null);
   const [icon, setIcon] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const formateAdvice = () => {
-    if (advice) {
-      if (idx === null) {
-        let currentIDX = Math.ceil(Math.random() * (advice.length - 0) + 0);
-        setIDX(currentIDX);
-        if (advice[currentIDX].category === "career") setIcon(careerIcon);
-        else if (advice[currentIDX].category === "developers")
-          setIcon(developersIcon);
-        else if (advice[currentIDX].category === "entrepreneurs")
-          setIcon(entrepreneursIcon);
-        else setIcon(adviceIcon);
-      }
+    if (advice && adviceIDX !== null) {
+      if (advice[adviceIDX].category === "career") setIcon(careerIcon);
+      else if (advice[adviceIDX].category === "developers")
+        setIcon(developersIcon);
+      else if (advice[adviceIDX].category === "entrepreneurs")
+        setIcon(entrepreneursIcon);
+      else setIcon(adviceIcon);
     }
   };
 
@@ -35,11 +31,11 @@ export default function Home() {
     // send to db
     let currentAdvices = [...advice];
     let currentAdviceUpdate = Object.assign({}, adviceUpdate);
-    currentAdvices[idx].likes += 1;
-    if (`${currentAdvices[idx].id}` in currentAdviceUpdate) {
-      currentAdviceUpdate[`${currentAdvices[idx].id}`] += 1;
+    currentAdvices[adviceIDX].likes += 1;
+    if (`${currentAdvices[adviceIDX].id}` in currentAdviceUpdate) {
+      currentAdviceUpdate[`${currentAdvices[adviceIDX].id}`] += 1;
     } else {
-      currentAdviceUpdate[`${currentAdvices[idx].id}`] = 1;
+      currentAdviceUpdate[`${currentAdvices[adviceIDX].id}`] = 1;
     }
     dispatch({ type: "UPDATE_ADVICE", payload: currentAdvices });
     dispatch({ type: "UPDATE_ADVICE_UPDATE", payload: currentAdviceUpdate });
@@ -47,7 +43,7 @@ export default function Home() {
 
   useEffect(() => {
     formateAdvice();
-  }, [advice]);
+  }, [advice, adviceIDX]);
 
   return (
     <div className="container">
@@ -81,7 +77,7 @@ export default function Home() {
           }`}
           role="alert"
         >
-          {advice && idx !== null && icon ? (
+          {advice && adviceIDX !== null && icon ? (
             <div>
               <div className="row w-100">
                 <div className="col-6">
@@ -91,15 +87,15 @@ export default function Home() {
                     className="rounded me-2"
                     alt={`advice-icon`}
                   />
-                  <strong>{`${advice[idx]?.category}`} </strong>
+                  <strong>{`${advice[adviceIDX]?.category}`} </strong>
                 </div>
                 <div className="col-6 text-end">
-                  likes: <strong>{`${advice[idx]?.likes}`}</strong>
+                  likes: <strong>{`${advice[adviceIDX]?.likes}`}</strong>
                 </div>
               </div>
               <blockquote className="blockquote mb-0">
-                <p>{`${advice[idx]?.advice}`}</p>
-                <footer className="blockquote-footer">{`${advice[idx]?.author}`}</footer>
+                <p>{`${advice[adviceIDX]?.advice}`}</p>
+                <footer className="blockquote-footer">{`${advice[adviceIDX]?.author}`}</footer>
               </blockquote>
               <div className="text-end ">
                 <button

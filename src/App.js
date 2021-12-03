@@ -17,13 +17,26 @@ function App() {
   const dispatch = useDispatch();
   const currentView = useSelector((state) => state.currentView);
   const darkMode = useSelector((state) => state.darkMode);
+  const advice = useSelector((state) => state.advice);
+  const adviceIDX = useSelector((state) => state.adviceIDX);
 
   const loadAdvice = () => {
-    // implement logic to get advice list
+    // implement logic to get advice list ****
     dispatch({
       type: "UPDATE_ADVICE",
       payload: AdviceData,
     });
+  };
+
+  const setAdviceIDX = () => {
+    if (advice) {
+      if (adviceIDX === null) {
+        dispatch({
+          type: "UPDATE_ADVICE_IDX",
+          payload: Math.ceil(Math.random() * (advice.length - 0) + 0),
+        });
+      }
+    }
   };
 
   const triggerCookiesMessage = () => {
@@ -58,8 +71,8 @@ function App() {
     triggerCookiesMessage();
     // loginAnonUser();
     loadAdvice();
-    return () => console.log("existing app");
-  }, []);
+    setAdviceIDX();
+  }, [advice]);
 
   return (
     <Fragment>

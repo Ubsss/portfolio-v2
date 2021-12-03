@@ -8,6 +8,7 @@ const initState = {
     buttonText: "",
   },
   advice: null,
+  adviceIDX: null,
   adviceUpdate: {},
   currentView: "home",
 };
@@ -38,6 +39,11 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         advice: action.payload,
+      };
+    case "UPDATE_ADVICE_IDX":
+      return {
+        ...state,
+        adviceIDX: action.payload,
       };
     case "UPDATE_ADVICE_UPDATE":
       return {
