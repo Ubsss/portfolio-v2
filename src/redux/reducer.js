@@ -6,8 +6,9 @@ const initState = {
     title: "",
     messages: [],
     buttonText: "",
-    advice: null,
   },
+  advice: null,
+  adviceUpdate: {},
   currentView: "home",
 };
 
@@ -37,6 +38,11 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         advice: action.payload,
+      };
+    case "UPDATE_ADVICE_UPDATE":
+      return {
+        ...state,
+        adviceUpdate: action.payload,
       };
     case "UPDATE_GAME":
       return {

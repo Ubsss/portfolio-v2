@@ -58,6 +58,7 @@ function App() {
     triggerCookiesMessage();
     // loginAnonUser();
     loadAdvice();
+    return () => console.log("existing app");
   }, []);
 
   return (

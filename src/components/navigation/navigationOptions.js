@@ -8,12 +8,32 @@ export default function NavigationOptions(props) {
 
   const darkMode = useSelector((state) => state.darkMode);
   const currentView = useSelector((state) => state.currentView);
+  const adviceUpdate = useSelector((state) => state.adviceUpdate);
+
+  const handleLikesUpdate = async () => {
+    // finish function ***
+    try {
+      if (adviceUpdate) {
+        // await data being sent to db ****
+        console.log("Updating likes, current likes: \n");
+        console.log(adviceUpdate);
+        dispatch({
+          type: "UPDATE_ADVICE_UPDATE",
+          payload: {},
+        });
+      }
+    } catch (error) {
+      console.log("error sending likes data: \n");
+      console.error(error);
+    }
+  };
 
   const updateView = (view) => {
     dispatch({
       type: "UPDATE_VIEW",
       payload: view,
     });
+    handleLikesUpdate();
   };
 
   return (

@@ -11,6 +11,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.darkMode);
   const advice = useSelector((state) => state.advice);
+  const adviceUpdate = useSelector((state) => state.adviceUpdate);
   const [idx, setIDX] = useState(null);
   const [icon, setIcon] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -33,8 +34,15 @@ export default function Home() {
   const handleAdviceLike = () => {
     // send to db
     let currentAdvices = [...advice];
+    let currentAdviceUpdate = Object.assign({}, adviceUpdate);
     currentAdvices[idx].likes += 1;
+    if (`${currentAdvices[idx].id}` in currentAdviceUpdate) {
+      currentAdviceUpdate[`${currentAdvices[idx].id}`] += 1;
+    } else {
+      currentAdviceUpdate[`${currentAdvices[idx].id}`] = 1;
+    }
     dispatch({ type: "UPDATE_ADVICE", payload: currentAdvices });
+    dispatch({ type: "UPDATE_ADVICE_UPDATE", payload: currentAdviceUpdate });
   };
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 export default [
   {
-    id: 0,
+    id: "0",
     likes: 0,
     advice: "Be your own biggest critic.",
     author: "Ashley Merrill",
