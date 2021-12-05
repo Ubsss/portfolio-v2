@@ -1,5 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { capitalizeFirstChar } from "../../utils/formatters";
 import ProfileImage from "./profilePhoto-mini.jpg";
 import developersIcon from "./developers.png";
 import careerIcon from "./career.png";
@@ -90,7 +91,12 @@ export default function Home() {
                   <strong>{`${advice[adviceIDX]?.category}`} </strong>
                 </div>
                 <div className="col-6 text-end">
-                  likes: <strong>{`${advice[adviceIDX]?.likes}`}</strong>
+                  likes:{" "}
+                  <strong>{`${
+                    advice[adviceIDX]?.likes > 1000
+                      ? "1000+"
+                      : advice[adviceIDX]?.likes
+                  }`}</strong>
                 </div>
               </div>
               <blockquote className="blockquote mb-0">
