@@ -88,10 +88,12 @@ export default function Home() {
                     className="rounded me-2"
                     alt={`advice-icon`}
                   />
-                  <strong>{`${advice[adviceIDX]?.category}`} </strong>
+                  <strong>
+                    {`${capitalizeFirstChar(advice[adviceIDX]?.category)}`}{" "}
+                  </strong>
                 </div>
                 <div className="col-6 text-end">
-                  likes:{" "}
+                  Likes:{" "}
                   <strong>{`${
                     advice[adviceIDX]?.likes > 1000
                       ? "1000+"
