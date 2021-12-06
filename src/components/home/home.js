@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="container">
-      <div className="text-center">
+      <div className="text-center mb-4">
         <p>
           <span
             id={`${darkMode ? "section-title-light" : "section-title-dark"}`}
@@ -66,7 +66,7 @@ export default function Home() {
         </p>
         <img
           id="home-image"
-          className="rounded-circle mb-2 img-fluid"
+          className="rounded-circle img-fluid"
           src={ProfileImage}
           alt="home"
         />
