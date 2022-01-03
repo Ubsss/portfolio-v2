@@ -1,9 +1,9 @@
-import nala from "./nala.jpeg";
-import nala1 from "./nala.jpeg";
-import nala2 from "./nala.jpeg";
-import sarabi from "./sarabi.jpeg";
-import sarabi1 from "./sarabi.jpeg";
-import sarabi2 from "./sarabi.jpeg";
+import nala from "./nala.jpg";
+import nala1 from "./nala1.jpg";
+import nala2 from "./nala2.jpg";
+import sarabi from "./sarabi.jpg";
+import sarabi1 from "./sarabi1.jpg";
+import sarabi2 from "./sarabi2.jpg";
 
 export default {
   nala: {

@@ -108,7 +108,7 @@ export default function Connect() {
     <div className="container text-center">
       <p>
         <span id={`${darkMode ? "section-title-light" : "section-title-dark"}`}>
-          Reach out
+          Reach Out
         </span>
         <br />
         <span

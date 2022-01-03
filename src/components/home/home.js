@@ -1,7 +1,7 @@
 import { useState, useEffect, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { capitalizeFirstChar } from "../../utils/formatters";
-import ProfileImage from "./profilePhoto-mini.jpg";
+import ProfileImage from "./profileImg.jpg";
 import developersIcon from "./developers.png";
 import careerIcon from "./career.png";
 import entrepreneursIcon from "./entrepreneurs.png";
@@ -53,7 +53,7 @@ export default function Home() {
           <span
             id={`${darkMode ? "section-title-light" : "section-title-dark"}`}
           >
-            Hello and welcome
+            Hello and Welcome
           </span>
           <br />
           <span

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="container text-center">
       <p id={`${darkMode ? "section-title-light" : "section-title-dark"}`}>
-        Giving back motivates me
+        Giving Back Motivates Me
       </p>
       <figure className="text-center">
         <blockquote className="blockquote">

@@ -6,7 +6,7 @@ export default function About() {
     <div className="container text-center">
       <p>
         <span id={`${darkMode ? "section-title-light" : "section-title-dark"}`}>
-          People, technology, and solutions
+          People, Technology, and Solutions
         </span>
         <br />
         <span
