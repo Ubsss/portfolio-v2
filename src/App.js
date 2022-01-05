@@ -47,7 +47,7 @@ function App() {
   };
 
   const setAdviceIDX = () => {
-    if (advice) {
+    if (advice && advice.length > 0) {
       if (adviceIDX === null) {
         dispatch({
           type: "UPDATE_ADVICE_IDX",

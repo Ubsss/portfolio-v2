@@ -18,7 +18,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const formateAdvice = () => {
-    if (advice.length > 0 && adviceIDX !== null) {
+    if (advice && adviceIDX !== null) {
       console.log("checking advice");
       if (advice[adviceIDX].category === "career") setIcon(careerIcon);
       else if (advice[adviceIDX].category === "developers")
