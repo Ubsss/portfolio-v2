@@ -80,9 +80,9 @@ function App() {
 
   useEffect(() => {
     triggerCookiesMessage();
-    loadAdvice();
+    if (!advice) loadAdvice();
     setAdviceIDX();
-  }, []);
+  }, [advice]);
 
   return (
     <Fragment>
