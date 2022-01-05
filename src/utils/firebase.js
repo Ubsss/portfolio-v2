@@ -18,25 +18,16 @@ class FirebaseObj {
   }
 
   /**
-   * signs in a anon user => remove console logs
-   */
-  async signInAnonUser() {
-    try {
-      await signInAnonymously(this.fbAuth);
-    } catch (error) {
-      // log error to server
-    }
-  }
-
-  /**
    * returns user token if available
    * @returns returns  current user token or null
    */
   async getCurrentUserToken() {
     try {
-      return this.fbAuth.currentUser.getIdToken(true) || null;
+      if (!this.fbAuth.currentUser) await signInAnonymously(this.fbAuth);
+      return (await this.fbAuth.currentUser.getIdToken(true)) || null;
     } catch (error) {
       // log error to server
+      console.log(error);
       return null;
     }
   }

@@ -28,21 +28,23 @@ function App() {
         {
           method: "POST",
           headers: {
-            Authentication: "Bearer " + token,
+            Authorization: "Bearer " + token,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ action: "getAllAdvice" }),
         }
       );
-      dispatch({
-        type: "UPDATE_ADVICE",
-        payload: await fetchAdviceData.json(),
-      });
+      let adviceData = await fetchAdviceData.json();
+      console.log(adviceData);
+      if (adviceData.code == 200) {
+        dispatch({
+          type: "UPDATE_ADVICE",
+          payload: adviceData.message,
+        });
+      }
     } catch (error) {
-      dispatch({
-        type: "UPDATE_ADVICE",
-        payload: [],
-      });
+      // send notification to user
+      console.log(error);
     }
   };
 
@@ -76,23 +78,11 @@ function App() {
     }
   };
 
-  const loginAnonUser = async () => {
-    try {
-      await Fire.signInAnonUser();
-      console.log(await Fire.getCurrentUserToken(/* forceRefresh */ true));
-      console.log("==========");
-    } catch (err) {
-      // send err to logs
-      console.log("Unable to login");
-    }
-  };
-
   useEffect(() => {
     triggerCookiesMessage();
-    loginAnonUser();
     loadAdvice();
     setAdviceIDX();
-  }, [advice]);
+  }, []);
 
   return (
     <Fragment>
