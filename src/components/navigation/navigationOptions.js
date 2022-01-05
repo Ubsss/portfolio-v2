@@ -2,6 +2,7 @@ import { navigationOptionsData } from "./navigationOptionsData";
 import "./navigation.css";
 import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Fire from "../../utils/firebase";
 
 export default function NavigationOptions(props) {
   const dispatch = useDispatch();
@@ -11,12 +12,26 @@ export default function NavigationOptions(props) {
   const adviceUpdate = useSelector((state) => state.adviceUpdate);
 
   const handleLikesUpdate = async () => {
-    // finish function ***
     try {
       if (adviceUpdate) {
         // await data being sent to db ****
-        console.log("Updating likes, current likes: \n");
-        console.log(adviceUpdate);
+        let token = await Fire.getCurrentUserToken();
+        let deconstructedAdviceUpdate = Object.entries(adviceUpdate);
+        let updatingAdviceLikes = await fetch(
+          process.env.REACT_APP_BACKEND_ENDPOINT,
+          {
+            method: "POST",
+            headers: {
+              Authorization: "Bearer " + token,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              action: "likeAdvice",
+              adviceID: deconstructedAdviceUpdate[0][0],
+              newLikes: deconstructedAdviceUpdate[0][1],
+            }),
+          }
+        );
         dispatch({
           type: "UPDATE_ADVICE_UPDATE",
           payload: {},
