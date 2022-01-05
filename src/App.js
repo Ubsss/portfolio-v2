@@ -11,7 +11,6 @@ import Community from "./components/community";
 import Dogos from "./components/dogos";
 import About from "./components/about";
 import Fire from "./utils/firebase";
-import AdviceData from "./components/home/content";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,12 +19,31 @@ function App() {
   const advice = useSelector((state) => state.advice);
   const adviceIDX = useSelector((state) => state.adviceIDX);
 
-  const loadAdvice = () => {
-    // implement logic to get advice list ****
-    dispatch({
-      type: "UPDATE_ADVICE",
-      payload: AdviceData,
-    });
+  const loadAdvice = async () => {
+    try {
+      // implement logic to get advice list ****
+      let token = await Fire.getCurrentUserToken();
+      let fetchAdviceData = await fetch(
+        process.env.REACT_APP_BACKEND_ENDPOINT,
+        {
+          method: "POST",
+          headers: {
+            Authentication: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ action: "getAllAdvice" }),
+        }
+      );
+      dispatch({
+        type: "UPDATE_ADVICE",
+        payload: await fetchAdviceData.json(),
+      });
+    } catch (error) {
+      dispatch({
+        type: "UPDATE_ADVICE",
+        payload: [],
+      });
+    }
   };
 
   const setAdviceIDX = () => {
@@ -61,6 +79,8 @@ function App() {
   const loginAnonUser = async () => {
     try {
       await Fire.signInAnonUser();
+      console.log(await Fire.getCurrentUserToken(/* forceRefresh */ true));
+      console.log("==========");
     } catch (err) {
       // send err to logs
       console.log("Unable to login");
@@ -69,7 +89,7 @@ function App() {
 
   useEffect(() => {
     triggerCookiesMessage();
-    // loginAnonUser();
+    loginAnonUser();
     loadAdvice();
     setAdviceIDX();
   }, [advice]);

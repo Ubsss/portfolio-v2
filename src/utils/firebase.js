@@ -4,13 +4,14 @@ import { getAuth, signInAnonymously, getIdToken } from "firebase/auth";
 class FirebaseObj {
   constructor() {
     this.config = {
-      apiKey: "AIzaSyDe54Zw4jWdMk8uTRmLsxfonxxTcGTsO6k",
-      authDomain: "full-stack-web.firebaseapp.com",
-      databaseURL: "https://full-stack-web.firebaseio.com",
-      projectId: "full-stack-web",
-      storageBucket: "full-stack-web.appspot.com",
-      messagingSenderId: "388903137374",
-      appId: "1:388903137374:web:33782ad7f662e361",
+      apiKey: "AIzaSyB7NUyuwZ7v6zzGtw9pn0pUnY-FGY5lyHM",
+      authDomain: "portfolio-site-8e4f6.firebaseapp.com",
+      databaseURL: "https://portfolio-site-8e4f6.firebaseio.com",
+      projectId: "portfolio-site-8e4f6",
+      storageBucket: "portfolio-site-8e4f6.appspot.com",
+      messagingSenderId: "193406269464",
+      appId: "1:193406269464:web:b694f1dbe16c06adbaab6d",
+      measurementId: "G-7R2ZQ3GZWM",
     };
     this.fbApp = initializeApp(this.config);
     this.fbAuth = getAuth(this.fbApp);
@@ -33,9 +34,7 @@ class FirebaseObj {
    */
   async getCurrentUserToken() {
     try {
-      let currentUser = this.fbAuth.currentUser;
-      if (currentUser) return await getIdToken(currentUser);
-      else return null;
+      return this.fbAuth.currentUser.getIdToken(true) || null;
     } catch (error) {
       // log error to server
       return null;
