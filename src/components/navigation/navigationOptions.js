@@ -60,6 +60,8 @@ export default function NavigationOptions(props) {
               <button
                 id="btn-medium-width"
                 type="button"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
                 className={`btn btn-outline-secondary btn-lg my-4 ${
                   darkMode ? "button-style-light" : "button-style-dark"
                 } ${currentView === option.view && "current-view-btn"}`}
@@ -77,6 +79,8 @@ export default function NavigationOptions(props) {
                 id="btn-large-width"
                 key={idx}
                 type="button"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
                 className={`btn btn-outline-secondary btn-lg my-4 ${
                   darkMode ? "button-style-light" : "button-style-dark"
                 } ${currentView === option.view && "current-view-btn"}`}

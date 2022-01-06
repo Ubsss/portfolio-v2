@@ -118,7 +118,7 @@ export default function Home() {
                       darkMode ? "button-style-light" : "button-style-dark"
                     }`}
                   >
-                    like
+                    Like
                   </button>
                 </div>
               </div>

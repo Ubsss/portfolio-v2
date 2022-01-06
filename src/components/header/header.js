@@ -78,6 +78,8 @@ function HeaderMobile() {
           checked={darkMode}
           value={darkMode}
           onChange={handleModeUpdate}
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
         />
       </div>
     </div>
