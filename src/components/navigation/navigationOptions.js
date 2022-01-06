@@ -13,7 +13,7 @@ export default function NavigationOptions(props) {
 
   const handleLikesUpdate = async () => {
     try {
-      if (adviceUpdate) {
+      if (adviceUpdate !== null) {
         // await data being sent to db ****
         let token = await Fire.getCurrentUserToken();
         let deconstructedAdviceUpdate = Object.entries(adviceUpdate);
@@ -34,7 +34,7 @@ export default function NavigationOptions(props) {
         );
         dispatch({
           type: "UPDATE_ADVICE_UPDATE",
-          payload: {},
+          payload: null,
         });
       }
     } catch (error) {

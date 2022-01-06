@@ -32,6 +32,7 @@ export default function Home() {
             <div className="carousel-indicators">
               {dogosData.nala.pictures.map((_, idx) => (
                 <button
+                  key={idx}
                   type="button"
                   data-bs-target="#nalaCarousel"
                   data-bs-slide-to={`${idx}`}
@@ -44,7 +45,10 @@ export default function Home() {
             <div className="carousel-inner px-2">
               {dogosData.nala.pictures.map((img, idx) => {
                 return (
-                  <div className={`carousel-item ${idx == 0 ? "active" : ""}`}>
+                  <div
+                    key={idx}
+                    className={`carousel-item ${idx == 0 ? "active" : ""}`}
+                  >
                     <img
                       id="dogos-image"
                       src={img}
@@ -88,6 +92,7 @@ export default function Home() {
             <div className="carousel-indicators">
               {dogosData.sarabi.pictures.map((_, idx) => (
                 <button
+                  key={idx}
                   type="button"
                   data-bs-target="#sarabiCarousel"
                   data-bs-slide-to={`${idx}`}
@@ -100,7 +105,10 @@ export default function Home() {
             <div className="carousel-inner px-2">
               {dogosData.sarabi.pictures.map((img, idx) => {
                 return (
-                  <div className={`carousel-item ${idx == 0 ? "active" : ""}`}>
+                  <div
+                    key={idx}
+                    className={`carousel-item ${idx == 0 ? "active" : ""}`}
+                  >
                     <img
                       id="dogos-image"
                       src={img}

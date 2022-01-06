@@ -9,7 +9,7 @@ const initState = {
   },
   advice: null,
   adviceIDX: null,
-  adviceUpdate: {},
+  adviceUpdate: null,
   currentView: "home",
 };
 
