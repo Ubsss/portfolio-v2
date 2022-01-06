@@ -86,7 +86,7 @@ export default function Home() {
                   <img
                     id="advice-icon"
                     src={icon}
-                    className="rounded me-2"
+                    className="rounded me-2 d-none d-sm-inline"
                     alt={`advice-icon`}
                   />
                   <strong>
@@ -106,16 +106,21 @@ export default function Home() {
                 <p>{`${advice[adviceIDX]?.advice}`}</p>
                 <footer className="blockquote-footer">{`${advice[adviceIDX]?.author}`}</footer>
               </blockquote>
-              <div className="text-end ">
-                <button
-                  disabled={loading}
-                  onClick={handleAdviceLike}
-                  className={`btn btn-outline-secondary btn ${
-                    darkMode ? "button-style-light" : "button-style-dark"
-                  }`}
-                >
-                  like
-                </button>
+              <div className="row">
+                <div className="col-8 d-flex align-items-center">
+                  <strong>Advice of the day.</strong>
+                </div>
+                <div className="text-end col-4">
+                  <button
+                    disabled={loading}
+                    onClick={handleAdviceLike}
+                    className={`btn btn-outline-secondary btn ${
+                      darkMode ? "button-style-light" : "button-style-dark"
+                    }`}
+                  >
+                    like
+                  </button>
+                </div>
               </div>
             </div>
           ) : (
