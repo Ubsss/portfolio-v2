@@ -37,7 +37,7 @@ export default function Connect() {
       let sendData = await fetch(process.env.REACT_APP_BACKEND_ENDPOINT, {
         method: "POST",
         headers: {
-          Authentication: "Bearer " + token,
+          Authorization: "Bearer " + token,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ action: "addMessage", message: connect }),
@@ -51,21 +51,17 @@ export default function Connect() {
   const sendConnectSMS = async () => {
     try {
       let token = await Fire.getCurrentUserToken();
-      let sendData = await fetch(
-        process.env.REACT_APP_BACKEND_ENDPOINT + "sms" || "",
-        {
-          method: "POST",
-          headers: {
-            Authentication: "Bearer " + token,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            action: "sendSMS",
-            project: "uboh",
-            message: JSON.stringify(connect),
-          }),
-        }
-      );
+      let sendData = await fetch(process.env.REACT_APP_BACKEND_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          action: "sendSMS",
+          message: JSON.stringify({ ...connect, project: "uboh" }),
+        }),
+      });
       return await sendData.json();
     } catch (error) {
       return null;
