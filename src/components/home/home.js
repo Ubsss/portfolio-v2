@@ -1,4 +1,4 @@
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { capitalizeFirstChar } from "../../utils/formatters";
 import ProfileImage from "./profileImg.jpg";
@@ -15,7 +15,6 @@ export default function Home() {
   const adviceIDX = useSelector((state) => state.adviceIDX);
   const adviceUpdate = useSelector((state) => state.adviceUpdate);
   const [icon, setIcon] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   const formateAdvice = () => {
     if (advice && adviceIDX !== null) {
@@ -112,7 +111,6 @@ export default function Home() {
                 </div>
                 <div className="text-end col-4">
                   <button
-                    disabled={loading}
                     onClick={handleAdviceLike}
                     className={`btn btn-outline-secondary btn ${
                       darkMode ? "button-style-light" : "button-style-dark"

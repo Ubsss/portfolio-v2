@@ -17,21 +17,18 @@ export default function NavigationOptions(props) {
         // await data being sent to db ****
         let token = await Fire.getCurrentUserToken();
         let deconstructedAdviceUpdate = Object.entries(adviceUpdate);
-        let updatingAdviceLikes = await fetch(
-          process.env.REACT_APP_BACKEND_ENDPOINT,
-          {
-            method: "POST",
-            headers: {
-              Authorization: "Bearer " + token,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              action: "likeAdvice",
-              adviceID: deconstructedAdviceUpdate[0][0],
-              newLikes: deconstructedAdviceUpdate[0][1],
-            }),
-          }
-        );
+        await fetch(process.env.REACT_APP_BACKEND_ENDPOINT, {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            action: "likeAdvice",
+            adviceID: deconstructedAdviceUpdate[0][0],
+            newLikes: deconstructedAdviceUpdate[0][1],
+          }),
+        });
         dispatch({
           type: "UPDATE_ADVICE_UPDATE",
           payload: null,

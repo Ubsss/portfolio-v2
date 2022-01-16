@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInAnonymously, getIdToken } from "firebase/auth";
+import { getAuth, signInAnonymously } from "firebase/auth";
 
 class FirebaseObj {
   constructor() {

@@ -36,8 +36,8 @@ export default function Home() {
                   type="button"
                   data-bs-target="#nalaCarousel"
                   data-bs-slide-to={`${idx}`}
-                  className={`${idx === 0 ? "active" : ""}`}
-                  aria-current={`${idx === 0 ? "true" : ""}`}
+                  className={`${idx === 0 && "active"}`}
+                  aria-current={`${idx === 0 && "true"}`}
                   aria-label={`Slide ${idx++}`}
                 />
               ))}
@@ -47,7 +47,7 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className={`carousel-item ${idx == 0 ? "active" : ""}`}
+                    className={`carousel-item ${idx === 0 ? "active" : ""}`}
                   >
                     <img
                       id="dogos-image"
@@ -96,8 +96,8 @@ export default function Home() {
                   type="button"
                   data-bs-target="#sarabiCarousel"
                   data-bs-slide-to={`${idx}`}
-                  className={`${idx === 0 ? "active" : ""}`}
-                  aria-current={`${idx === 0 ? "true" : ""}`}
+                  className={`${idx === 0 && "active"}`}
+                  aria-current={`${idx === 0 && "true"}`}
                   aria-label={`Slide ${idx++}`}
                 />
               ))}
@@ -107,7 +107,7 @@ export default function Home() {
                 return (
                   <div
                     key={idx}
-                    className={`carousel-item ${idx == 0 ? "active" : ""}`}
+                    className={`carousel-item ${idx === 0 ? "active" : ""}`}
                   >
                     <img
                       id="dogos-image"

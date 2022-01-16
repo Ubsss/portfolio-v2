@@ -5,7 +5,7 @@ import sarabi from "./sarabi.jpg";
 import sarabi1 from "./sarabi1.jpg";
 import sarabi2 from "./sarabi2.jpg";
 
-export default {
+const dogosData = {
   nala: {
     name: "Nala",
     description:
@@ -19,3 +19,5 @@ export default {
     pictures: [sarabi, sarabi1, sarabi2],
   },
 };
+
+export default dogosData;

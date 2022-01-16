@@ -36,7 +36,7 @@ function App() {
       );
       let adviceData = await fetchAdviceData.json();
       console.log(adviceData);
-      if (adviceData.code == 200) {
+      if (adviceData.code === 200) {
         dispatch({
           type: "UPDATE_ADVICE",
           payload: adviceData.message,
