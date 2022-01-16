@@ -85,10 +85,12 @@ export default function Connect() {
       // Send data to backend
       let sentData = await sendConnectData();
       if (!sentData || sentData.code !== 200) {
-        messages.push("Unable to deliver your message, please try again.");
-        updateNotification("Oops!", true, messages, "Close");
+        messages.push(
+          "Unable to deliver your message, please try again later 😩"
+        );
+        updateNotification("Oops!", true, messages, "Ok");
       } else {
-        await sendConnectSMS();
+        // await sendConnectSMS();
         messages.push("Thank you for the message!");
         updateNotification("Awesome!", true, messages, "Close");
         clearConnectData();

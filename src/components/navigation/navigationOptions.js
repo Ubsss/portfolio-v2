@@ -11,6 +11,20 @@ export default function NavigationOptions(props) {
   const currentView = useSelector((state) => state.currentView);
   const adviceUpdate = useSelector((state) => state.adviceUpdate);
 
+  const updateNotification = (title, show, messages, buttonText) => {
+    let newNotificationObject = {
+      title,
+      show,
+      messages,
+      buttonText,
+    };
+
+    dispatch({
+      type: "UPDATE_NOTIFICATION",
+      payload: newNotificationObject,
+    });
+  };
+
   const handleLikesUpdate = async () => {
     try {
       if (adviceUpdate !== null) {
@@ -35,8 +49,10 @@ export default function NavigationOptions(props) {
         });
       }
     } catch (error) {
-      console.log("error sending likes data: \n");
-      console.error(error);
+      let message = [
+        "Unable to record your advice like(s), please try again later 😅",
+      ];
+      updateNotification("Heads up", true, message, "Ok");
     }
   };
 

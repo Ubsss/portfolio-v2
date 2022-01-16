@@ -26,8 +26,6 @@ class FirebaseObj {
       if (!this.fbAuth.currentUser) await signInAnonymously(this.fbAuth);
       return (await this.fbAuth.currentUser.getIdToken(true)) || null;
     } catch (error) {
-      // log error to server
-      console.log(error);
       return null;
     }
   }

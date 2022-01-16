@@ -19,6 +19,20 @@ function App() {
   const advice = useSelector((state) => state.advice);
   const adviceIDX = useSelector((state) => state.adviceIDX);
 
+  const updateNotification = (title, show, messages, buttonText) => {
+    let newNotificationObject = {
+      title,
+      show,
+      messages,
+      buttonText,
+    };
+
+    dispatch({
+      type: "UPDATE_NOTIFICATION",
+      payload: newNotificationObject,
+    });
+  };
+
   const loadAdvice = async () => {
     try {
       // implement logic to get advice list ****
@@ -35,7 +49,6 @@ function App() {
         }
       );
       let adviceData = await fetchAdviceData.json();
-      console.log(adviceData);
       if (adviceData.code === 200) {
         dispatch({
           type: "UPDATE_ADVICE",
@@ -43,8 +56,8 @@ function App() {
         });
       }
     } catch (error) {
-      // send notification to user
-      console.log(error);
+      let message = ["Unable to get advice 😭"];
+      updateNotification("Heads up", true, message, "Ok");
     }
   };
 
