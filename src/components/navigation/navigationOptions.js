@@ -67,7 +67,7 @@ export default function NavigationOptions(props) {
   return (
     <Fragment>
       {navigationOptionsData.map((option, idx) => {
-        if (idx === 0 || idx === 3) {
+        if (idx === 0 || idx === 2) {
           return (
             <div key={idx}>
               <button
